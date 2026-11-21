@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI platinum tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <p class="kicker">Grand Theft Auto VI · PlayStation 5</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="sub">All 55 trophies, each with a guide in our own words and the source it cites — plus a tracker that saves your progress in this browser.</p>
+  </div>
+  <div class="progress-card" id="progress-card">
+    <div class="progress-number"><span id="earned-count">0</span><span class="of">/ 55</span></div>
+    <div class="progress-bar"><div id="progress-fill"></div></div>
+    <p id="progress-text">0 of 55 earned · 0% to the platinum</p>
+    <p class="progress-note">Platinum pops when all 54 others are earned.</p>
+  </div>
+</header>
+
+<nav class="views">
+  <button id="view-guide" type="button" class="view-btn active">Trophy guide</button>
+  <button id="view-roadmap" type="button" class="view-btn">Roadmap to platinum</button>
+</nav>
+
+<section id="roadmap-view" class="roadmap" hidden>
+  <h2 id="roadmap-title">Roadmap to the platinum</h2>
+  <p id="roadmap-summary"></p>
+  <dl id="roadmap-facts" class="facts"></dl>
+  <ol id="roadmap-stages" class="stages"></ol>
+  <p class="cite">Roadmap: <a id="roadmap-source" href="#" target="_blank" rel="noopener"></a></p>
+</section>
+
+<section id="guide-view">
+  <div class="controls">
+    <label class="search">Search <input id="search" type="search" placeholder="Trophy, mission, activity…" autocomplete="off"></label>
+    <label>Kind
+      <select id="kind">
+        <option value="all">All kinds</option>
+        <option value="story">Story</option>
+        <option value="missable">Missable</option>
+        <option value="collectibles">Collectibles</option>
+        <option value="activities">Activities</option>
+        <option value="online">Online</option>
+        <option value="completion">100% completion</option>
+        <option value="platinum">Platinum</option>
+      </select>
+    </label>
+    <label>Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>Show
+      <select id="earned-filter">
+        <option value="all">All trophies</option>
+        <option value="todo">Not earned yet</option>
+        <option value="earned">Earned</option>
+      </select>
+    </label>
+    <label class="spoiler-toggle"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+    <button id="export" type="button">Export progress</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+    <button id="reset" type="button">Clear all ticks</button>
+  </div>
+  <p id="count-line" class="count-line"></p>
+  <div id="cards" class="cards"></div>
+  <p id="empty-state" class="empty-state" hidden></p>
+</section>
+
+<footer>
+  <p>Trophy names and descriptions are shown as PlayStation publishes them. Every guide is written in our own words for this guide and cites its source beside it — a source is cited, never copied. No Rockstar Games logo, artwork or game screenshot is used anywhere in this app.</p>
+  <p>Progress is saved only in this browser (localStorage). Export it to a file to keep a backup, and import it back on any machine.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

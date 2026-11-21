@@ -1,0 +1,209 @@
+/* Leonida Trophy Guide — own design. Deep Vice City night with neon sunset
+   accents. System fonts only; no external files, no Rockstar artwork. */
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #b9b2a6;
+  --bg: #141021;
+  --panel: #1e1830;
+  --panel-2: #262038;
+  --line: #3a3157;
+  --pink: #ff5da2;
+  --teal: #2dd4bf;
+  --gold: #f5c542;
+  --silver: #c7cede;
+  --bronze: #d08a4e;
+  --platinum: #7de3ff;
+  --danger: #ff6b5e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.5;
+}
+a { color: var(--teal); }
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 28px 24px 20px;
+  background: linear-gradient(135deg, #2a1544 0%, #141021 55%, #0d2b2e 100%);
+  border-bottom: 3px solid var(--pink);
+}
+.kicker {
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--teal);
+}
+h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.1; }
+.sub { margin: 0; max-width: 560px; color: var(--ink-dim); }
+.progress-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+  min-width: 280px;
+}
+.progress-number { font-size: 34px; font-weight: 700; }
+.progress-number .of { font-size: 18px; color: var(--ink-dim); }
+.progress-bar {
+  height: 10px;
+  border-radius: 6px;
+  background: #0d0a18;
+  margin: 8px 0;
+  overflow: hidden;
+}
+#progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  transition: width 0.3s ease;
+}
+.progress-card p { margin: 4px 0; font-size: 14px; }
+.progress-note { color: var(--ink-dim); font-size: 13px; }
+.views { display: flex; gap: 8px; padding: 16px 24px 0; }
+.view-btn {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.view-btn.active { background: var(--pink); border-color: var(--pink); color: #fff; }
+.roadmap, #guide-view { padding: 16px 24px 24px; }
+.roadmap h2 { margin: 4px 0 8px; font-size: 24px; }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+.facts div {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.facts dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-dim); }
+.facts dd { margin: 2px 0 0; font-weight: 700; }
+.stages { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.stages > li {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--teal);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.stages h3 { margin: 0 0 4px; font-size: 19px; }
+.stages h3 .time { color: var(--gold); font-size: 14px; font-weight: 400; }
+.stages .goal { margin: 0 0 8px; color: var(--ink-dim); }
+.stages ul { margin: 0; padding-left: 20px; }
+.stages li { margin: 4px 0; }
+.cite { color: var(--ink-dim); font-size: 13px; }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 4px 0 12px;
+}
+.controls label { font-size: 14px; }
+.controls select, .controls input[type="search"] {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 14px;
+}
+.controls input[type="search"] { min-width: 220px; }
+.controls button {
+  background: var(--teal);
+  color: #08211e;
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.import input { font-size: 12px; }
+.spoiler-toggle { display: flex; align-items: center; gap: 6px; }
+.count-line { color: var(--ink-dim); font-size: 14px; margin: 0 0 12px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 14px; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.card.earned { border-color: var(--teal); }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.25; }
+.grade {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: #0d0a18;
+}
+.grade.platinum { color: var(--platinum); border: 1px solid var(--platinum); }
+.grade.gold { color: var(--gold); border: 1px solid var(--gold); }
+.grade.silver { color: var(--silver); border: 1px solid var(--silver); }
+.grade.bronze { color: var(--bronze); border: 1px solid var(--bronze); }
+.desc { margin: 0; color: var(--ink-dim); font-style: italic; }
+.guide { margin: 0; font-size: 14px; }
+.flags { display: flex; gap: 6px; flex-wrap: wrap; }
+.flag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.flag.missable { background: var(--danger); color: #fff; }
+.flag.kind { background: var(--panel-2); color: var(--teal); border: 1px solid var(--line); }
+.flag.unconfirmed { background: var(--gold); color: #241a00; }
+.source { margin: 0; font-size: 13px; color: var(--ink-dim); }
+.card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 8px; }
+.earn-btn {
+  background: var(--panel-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.card.earned .earn-btn { background: var(--teal); color: #08211e; border-color: var(--teal); font-weight: 700; }
+.spoiler-hidden { filter: blur(5px); user-select: none; }
+.empty-state {
+  background: var(--panel);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: var(--ink-dim);
+}
+footer { padding: 8px 24px 28px; color: var(--ink-dim); font-size: 13px; }
+footer p { margin: 6px 0; max-width: 900px; }
+@media (max-width: 640px) {
+  h1 { font-size: 26px; }
+  .masthead, .roadmap, #guide-view { padding-left: 14px; padding-right: 14px; }
+  .cards { grid-template-columns: 1fr; }
+}
